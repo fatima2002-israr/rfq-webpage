@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFQ Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+           
+            <button class="sidebar-toggle d-md-none btn btn-primary" id="sidebarToggle">
+                <i class="fas fa-bars"></i> Menu
+            </button>
+
+       <div class="col-md-3 col-lg-2 sidebar" id="sidebar">
+                <!-- Overview Section -->
+                <div class="sidebar-section">
+                    <h5 class="font-weight-bold">Overview</h5>
+                    <div class="overview-stats">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-folder-open"></i>
+                            </div>
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Open RFQ's</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <i class="fas fa-folder"></i>
+                            </div>
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Closed RFQ's</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gem Form Section -->
+                <div class="sidebar-section">
+                    <h5 class="font-weight-bold">+ Gem Form</h5>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="gemstones">
+                            <label class="custom-control-label" for="gemstones">Gemstones</label>
+                            <span class="badge bg-transparent float-right">10</span>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="rough">
+                            <label class="custom-control-label" for="rough">Rough</label>
+                            <span class="badge bg-transparent float-right">10</span>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="crystals">
+                            <label class="custom-control-label" for="crystals">Crystals</label>
+                            <span class="badge bg-transparent float-right">20</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gem Type Section -->
+                <div class="sidebar-section">
+                    <h5 class="font-weight-bold">Gem Type</h5>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <a href="#" class="text-primary">Reset filters...</a>
+                </div>
+
+                <!-- RFQ's Section -->
+                <div class="sidebar-section">
+                    <h5 class="font-weight-bold">+ RFQ's</h5>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="open-rfqs">
+                            <label class="custom-control-label" for="open-rfqs">Open RFQ's</label>
+                            <span class="badge bg-transparent float-right">10</span>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="successful-rfqs">
+                            <label class="custom-control-label" for="successful-rfqs">Successful RFQ's</label>
+                            <span class="badge bg-transparent float-right">10</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sort Items Section -->
+                <div class="sidebar-section">
+                    <h5 class="font-weight-bold">+ Sort Items</h5>
+                    <div class="form-group">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="time-left" name="sort">
+                            <label class="custom-control-label" for="time-left">Time Left</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="price-low-high" name="sort">
+                            <label class="custom-control-label" for="price-low-high">Price Low to High</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="price-high-low" name="sort">
+                            <label class="custom-control-label" for="price-high-low">Price High to Low</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="new-old" name="sort">
+                            <label class="custom-control-label" for="new-old">New to Old</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="old-new" name="sort">
+                            <label class="custom-control-label" for="old-new">Old to New</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10 main-content">
+                <!-- Header -->
+                <div class="content-header">
+                    <div class="d-flex justify-content-between align-items-center flex-column text-center">
+                        <div>
+                            <a href="#" class="text-decoration-none">Click here to submit your request</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open RFQ's Section -->
+                <div class="section-header">
+                    <button class="btn btn-warning mb-4 rounded-pill btn-large">Open RFQ's</button>
+                </div>
+
+                <!-- Bootstrap 4 Carousel for Open RFQ's -->
+                <div id="openRFQCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- First slide with 4 cards -->
+                        <div class="carousel-item active">
+                            <div class="d-flex  justify-content-start">
+                                <!-- Card 1 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">01 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">02 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">03 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan </p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">04 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Second slide with 4 more cards -->
+                        <div class="carousel-item">
+                            <div class="d-flex  justify-content-start">
+                                <!-- Card 5 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">05 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 6 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">06 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 7 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">07 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald(Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 8 -->
+                                <div class="rfq-card">
+                                    <div class="card-status">08 Bids Received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald(Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Budget:</strong> $50 - $100</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <a class="carousel-control-prev" href="#openRFQCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#openRFQCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!-- Successful RFQ's Section -->
+                <div class="section-header mt-5">
+                    <button class="btn btn-warning mb-4 rounded-pill btn-large">Successful RFQ's</button>
+                </div>
+
+                <!-- Bootstrap 4 Carousel for Successful RFQ's -->
+                <div id="successfulRFQCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- First slide with 4 cards -->
+                        <div class="carousel-item active">
+                            <div class="d-flex  justify-content-start">
+                                <!-- Card 1 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">01 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn">View Quote</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 2 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">02 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald(Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn" >View Quote</button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 3 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">03 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong>Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn">View Quote</button>
+                                            </div>
+                                     </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 4 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">04 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong>2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn">View Quote</button>    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Second slide with 4 more cards -->
+                        <div class="carousel-item">
+                            <div class="d-flex  justify-content-start">
+                                <!-- Card 5 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">05 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn">View Quote</button>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 6 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">06 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn">View Quote</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 7 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">07 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald (Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn">View Quote</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Card 8 -->
+                                <div class="rfq-card">
+                                    <div class="card-status success">08 bids received</div>
+                                    <div class="card-image">
+                                        <img src="download (1).jpeg" alt="Emerald Gemstones" class="img-fluid">
+                                    </div>
+                                    <div class="card-content">
+                                        <h6 class="card-title">Emerald(Gemstones)</h6>
+                                        <div class="card-details">
+                                            <p><strong>Weight:</strong> 2.4 ct</p>
+                                            <hr class="my-2">
+                                            <p><strong>Dimensions:</strong> 3 x 5 x 9 mm</p>
+                                            <hr class="my-2">
+                                            <p><strong>Origin:</strong> Afghanistan</p>
+                                            <hr class="my-2">
+                                            <p><strong>Final Price:</strong> $50-$100</p>
+                                            <div class="card-body d-flex flex-column justify-content-center">
+                                                <button class="btn">View Qoute</button>
+                                                   </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carousel Controls -->
+                    <a class="carousel-control-prev" href="#successfulRFQCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#successfulRFQCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+            <!--footer section-->
+            <footer class="gemstone-footer pt-5 pb-4">
+                <div class="container">
+                    <div class="row mb-4">
+                        <!-- Logo Column -->
+                        <div class="col-md-3 mb-4 mb-md-0">
+                            <h2 class="font-weight-bold mb-0">GEMSTONE® SAFE</h2>
+                        </div>
+
+                        <!-- Quick Links Column -->
+                        <div class="col-md-3 mb-4 mb-md-0">
+                            <h4 class="font-weight-bold mb-3">Quick Links</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">Terms & Conditions</li>
+                                <li class="mb-2">Shipping & return</li>
+                                <li class="mb-2">Return policies</li>
+                                <li>FAQS</li>
+                            </ul>
+                        </div>
+
+                        <!-- Company Column -->
+                        <div class="col-md-3 mb-4 mb-md-0">
+                            <h4 class="font-weight-bold mb-3">Company</h4>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">About Us</li>
+                                <li>Verified Seller Program</li>
+                            </ul>
+                        </div>
+
+                        <!-- Contact Column -->
+                        <div class="col-md-3">
+                            <h4 class="font-weight-bold mb-3">Contact Us</h4>
+                            <p class="mb-0">contact@gemstonesafe.com</p>
+                            <div class="social-icons mt-3">
+                                <a href="#" class="social-icon facebook" aria-label="Facebook">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon instagram" aria-label="Instagram">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Copyright Section -->
+                    <div class="f">
+                        <div class="row pt-3 border-top">
+                            <div class="col-md-6  text-center">
+                                <p class="small mb-0" style="font-size:16px; font-weight: 700;">© 2025 All rights
+                                    reserved.</p>
+                            </div>
+
+                            <div class="m">
+                                <div class="payment-methods">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/200px-Visa_Inc._logo.svg.png"
+                                        alt="Visa" class="payment-icon">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/200px-Mastercard-logo.svg.png"
+                                        alt="Mastercard" class="payment-icon">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Stripe%2C_Inc._logo.svg/200px-Stripe%2C_Inc._logo.svg.png"
+                                        alt="Stripe" class="payment-icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="javascript-file.js"></script>
+
+</body>
+
+</html>

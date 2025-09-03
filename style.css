@@ -1,0 +1,538 @@
+/* Global Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container-fluid {
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: #e4d9d9;
+  border-right: 1px solid #d1c6c6;
+  z-index: 10;
+  padding: 20px;
+  padding-left: 25px;
+  position: sticky;
+  top: 0;
+  height: auto;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-toggle {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 20;
+  display: none;
+}
+
+.sidebar-section {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.sidebar-section:last-child {
+  border-bottom: none;
+}
+
+.sidebar-section h5,
+.sidebar-section h6 {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+
+.overview-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  padding: 8px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.stat-icon {
+  font-size: 24px;
+  color: #6c757d;
+  margin-bottom: 8px;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 15px;
+  color: black;
+  font-weight: 500;
+}
+
+
+.custom-control-label {
+  font-size: 18px;
+  color: #333;
+}
+
+.badge {
+  font-size: 14px;
+}
+
+/* Main Content */
+.main-content {
+  padding: 50px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.content-header {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: transparent;
+  border-radius: 0px;
+  text-decoration: underline;
+}
+
+.content-header a {
+  color: black;
+  font-weight: 500;
+}
+
+.section-header {
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.card-status.success::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.card-status::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+
+.carousel {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.carousel-inner {
+  overflow: visible;
+  padding: 20px 0;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 40px;
+  height: 40px;
+  background-color: #c56f0c;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-control-prev {
+  left: -35px;
+}
+
+.carousel-control-next {
+  right: -35px;
+}
+
+
+.rfq-card {
+  flex: 0 0 calc(25% - 16px);
+  max-width: calc(25% - 16px);
+  margin: 0 8px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  margin-bottom: 20px;
+}
+.rfq-card .card .bids-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+.rfq-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #a3aeaf;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 11px;
+  font-weight: 600;
+  z-index: 5;
+  font-size: 13px;
+}
+
+.card-status.success {
+  background-color: #a3aeaf;
+  font-size: 13px;
+}
+
+.card-image {
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.rfq-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.card-details p {
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: #000000;
+}
+
+.card-details strong {
+  color: #333;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.card-details hr {
+  margin: 4px 0;
+}
+
+
+.gemstone-footer {
+  background-color: #ebd189 !important;
+  padding: 40px 0;
+  width: 100%;
+}
+
+.gemstone-footer h2 {
+  font-size: 2.3rem;
+  color: #000;
+}
+
+.gemstone-footer h4 {
+  font-size: 1.5rem;
+  color: #000;
+}
+
+.gemstone-footer ul li {
+  color: #333;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.gemstone-footer p {
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.gemstone-footer .border-top {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.f {
+  border-top: 2px solid red;
+  width: 100%;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none !important;
+  text-decoration: none;
+  font-size: 25px;
+  transition: all 0.3s ease;
+}
+
+.social-icon.instagram {
+  color: black;
+}
+
+.payment-methods {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+  margin-left: 200px;
+}
+
+.payment-icon {
+  height: 30px;
+  width: auto;
+  padding: 5px 8px;
+  transition: all 0.3s ease;
+}
+/* Default button style (desktop + all views) */
+.rfq-card .btn {
+  background-color: rgb(235, 171, 146);
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 17px;
+  width: 100%;          /* ensures equal size inside each card */
+  text-align: center;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* Responsive Design */
+@media (max-width: 1199.98px) {
+  .rfq-card {
+    flex: 0 0 calc(33.333% - 16px);
+    max-width: calc(33.333% - 16px);
+  }
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    position: fixed;
+    transform: translateX(-100%);
+    width: 280px;
+    height: 100vh;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .rfq-card {
+    flex: 0 0 calc(50% - 16px);
+    max-width: calc(50% - 16px);
+  }
+
+  .gemstone-footer h2 {
+    margin-left: 0;
+  }
+
+  .payment-methods {
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .f .row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+    .rfq-card {
+      flex: 0 0 calc(50% - 16px);
+      max-width: calc(50% - 16px);
+      margin: 0 4px 16px 4px;
+      display: flex;           /* make card a flexbox */
+      flex-direction: column;  /* stack content vertically */
+    }
+  
+    .carousel-item .d-flex {
+      flex-wrap: nowrap;
+      justify-content: center;
+      margin: 0 -8px;
+      gap: 22px;
+      padding: 0 8px;
+      align-items: stretch;   /* ensures equal card heights */
+    }
+  
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+  
+    .carousel-item {
+      padding: 0 15px;
+    }
+  
+    .gemstone-footer .col-md-3 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    .social-icons {
+      justify-content: center;
+    }
+  
+    /* Make card body flex so button aligns at bottom */
+    .rfq-card .card-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow:1;
+    }
+  
+    .rfq-card .card {
+      height: 100%;              /* makes card stretch to same height */
+      display: flex;
+      flex-direction: column;
+    }
+    /* Push button to bottom + keep them equal */
+    .rfq-card .btn {
+      margin-top: auto;     /* button sits at bottom */
+      width: 100%;          /* full width */
+      padding: 12px 0;      /* equal height */
+      font-size: 16px;      /* consistent text size */
+    }
+  }
+  
+
+@media (max-width: 575.98px) {
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .overview-stats {
+    flex-direction: column;
+  }
+
+  .stat-item {
+    margin-bottom: 10px;
+  }
+
+  .section-header button {
+    font-size: 16px;
+    padding: 5px 15px;
+  }
+
+  .payment-methods {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .payment-icon {
+    height: 25px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rfq-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+
+.carousel-item .d-flex {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  
+  scrollbar-width: none;
+  
+}
+
+.carousel-item .d-flex::-webkit-scrollbar {
+  display: none;
+  
+}
+
+.rfq-card {
+  flex: 0 0 auto;
+  }
